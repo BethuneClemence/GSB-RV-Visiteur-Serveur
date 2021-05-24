@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAISIR RAPPORT"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="90dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saisir de nouveaux rapports"
+        android:textColor="@color/yellow"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:textStyle="bold"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="750dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/custom_layout"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDate"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner"
+            android:text="Choisir une date"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:onClick="afficherDate"/>
+
+        <Spinner
+            android:id="@+id/spinner_praticiens"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/spinner"
+            android:popupBackground="@color/green_bg"
+            android:spinnerMode="dropdown"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_motifs"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/spinner"
+            android:popupBackground="@color/green_bg"
+            android:spinnerMode="dropdown"
+            />
+
+        <EditText
+            android:id="@+id/etBilan"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="210dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="20dp"
+            android:hint="@string/edit_text_hint_bilan"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textColorHint="@color/shadow"
+            android:textSize="12dp"
+
+            />
+
+        <Spinner
+            android:id="@+id/spinner_coeffconfiance"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/spinner"
+            android:popupBackground="@color/green_bg"
+            android:spinnerMode="dropdown"
+            />
+
+        <Button
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/custom_button"
+            android:text="VALIDER"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:onClick="insererRapport"/>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:id="@+id/erreurSaisiRapport"
+            android:layout_marginTop="360dp"
+            android:background="@drawable/custom_alert"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Erreur, veuillez réessayer !"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:id="@+id/saisiOk"
+            android:layout_marginTop="360dp"
+            android:background="@drawable/custom_alert_success"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Super, le rapport vient d'etre inséré !"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+
+

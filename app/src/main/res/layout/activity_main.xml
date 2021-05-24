@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/launcher_gsb"
+    android:orientation="vertical">
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/tvErreur"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Matricule :"
+        />
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:hint="a131"
+        android:inputType="text"
+        android:id="@+id/etMatricule"
+        android:textSize="12dp"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mot de passe :"
+        />
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:hint="*****"
+        android:id="@+id/etMdp"
+        android:inputType="textPassword"
+        android:textSize="12dp"
+
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valider"
+            android:id="@+id/bValider"
+            android:onClick="seConnecter"
+            android:backgroundTint="@color/blue"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/bAnnuler"
+            android:onClick="annuler"
+            android:backgroundTint="@color/blue"
+
+            />
+    </LinearLayout>-->
+</LinearLayout>

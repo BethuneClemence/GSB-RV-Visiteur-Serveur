@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/green_bg"
+    android:orientation="vertical"
+    tools:context=".rv.vues.ConsulterRapportActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RESULTAT RAPPORT"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="90dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consulter les anciens rapports"
+        android:textColor="@color/yellow"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:textStyle="bold"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_layout"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/id_userCo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-80dp"
+            android:drawableLeft="@drawable/account"
+            android:gravity="center"
+            android:padding="100dp"
+            android:text="Ewen prigent"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/liste_rapport"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="70dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
