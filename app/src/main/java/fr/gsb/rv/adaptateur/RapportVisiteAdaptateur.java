@@ -54,24 +54,37 @@ public class RapportVisiteAdaptateur extends BaseAdapter {
         TextView dateRedaction = (TextView) v.findViewById(R.id.date_redaction);
         TextView rapLu = (TextView) v.findViewById(R.id.rap_lu);
 
+        // initialisation des champs relatifs a notre layout
+
         praticienNom.setText("Praticien: "+lesRapports.get(position).getLePraticien().getNom().toUpperCase());
         libelleMotif.setText("Motif: "+lesRapports.get(position).getLeMotif().getLibelle());
         dateCreation.setText("Visité le: "+lesRapports.get(position).getDateVisite().toString());
         rapBilan.setText("Bilan: "+lesRapports.get(position).getBilan());
         dateRedaction.setText("Crée le: "+lesRapports.get(position).getDateRedaction().toString());
 
+        // on associe
+
         if(lesRapports.get(position).isLu() == 1){
             rapLu.setText("Lu");
         }
 
+        // condition qui permet de savoir si le rapport a ete lu dans ce cas dans notre champ input on indique "lu"
+
+
+        // fonction permettant lorsque l'on clique sur un rapport de declencher une intention et de basculer
+        // sur la partie traitement des echantillons
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(context, String.valueOf(lesRapports.get(position).getNumero()), Toast.LENGTH_LONG).show();
                 int numRapport = lesRapports.get(position).getNumero();
+                // recupération du numero du rapport ou l'on clique
+
                 Intent intention = new Intent(context, DescriptionRapportActivity.class);
+                // creation de l'intention
 
                 Bundle bundle = new Bundle();
+                // creation du paquet
 
                 ArrayList<Integer> arraylist = new ArrayList<>();
                 arraylist.add(numRapport);

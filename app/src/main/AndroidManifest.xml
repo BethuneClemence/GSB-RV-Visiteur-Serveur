@@ -25,6 +25,8 @@
         <activity android:name=".rv.vues.AfficherRapportActivity"/>
         <activity android:name=".rv.vues.DescriptionRapportActivity"/>
         <activity android:name=".rv.vues.SaisirRapportActivity"/>
+        <activity android:name=".rv.vues.ProfilActivity"/>
+        <activity android:name=".rv.vues.ModifierMdpActivity"/>
     </application>
 
 </manifest>

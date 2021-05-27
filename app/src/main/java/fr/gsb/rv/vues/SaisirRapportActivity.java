@@ -62,8 +62,13 @@ public class SaisirRapportActivity extends AppCompatActivity {
         nOk = (RelativeLayout) findViewById(R.id.erreurSaisiRapport);
         ok = (RelativeLayout) findViewById(R.id.saisiOk);
 
+        // initialisation des champs relatif a notre layout
+
         lesPraticiens.add("Praticiens");
         String url = String.valueOf(getResources().getString(R.string.getPraticiens));
+        // appelation de notre route
+
+        //creation de notre ecouteur
         Response.Listener<JSONArray> ecouteur = new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -85,12 +90,15 @@ public class SaisirRapportActivity extends AppCompatActivity {
             }
         };
 
+        // creation d'un ecouteur d'erreur
         Response.ErrorListener ecouteurErreur = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(SaisirRapportActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         };
+
+        // creation de notre requete : url, methode, ecouteur
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -102,8 +110,14 @@ public class SaisirRapportActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(SaisirRapportActivity.this);
         requestQueue.add(jsonArrayRequest);
 
+        // creation de notre adaptateur de type String
+
         ArrayAdapter<String> praticiensAdapter = new ArrayAdapter<>(SaisirRapportActivity.this, R.layout.spinner_item, lesPraticiens);
         spinnerPraticiens.setAdapter(praticiensAdapter);
+
+        // on associe notre adaptateur a notre spinner pour qu'il puisse boucler dessus
+
+        // meme principe pour les motifs
 
         lesMotifs.add("Motifs");
         String url2 = String.valueOf(getResources().getString(R.string.getMotifs));
@@ -147,7 +161,8 @@ public class SaisirRapportActivity extends AppCompatActivity {
 
         ArrayAdapter<String> motifsAdaptateur = new ArrayAdapter<>(SaisirRapportActivity.this, R.layout.spinner_item, lesMotifs);
         spinnerMotifs.setAdapter(motifsAdaptateur);
-    
+
+        // creation d'un tableau pour les coefficients de confiance
         ArrayList<String> arrayCoeffConfiance = new ArrayList<>();
 
         arrayCoeffConfiance.add("Coefficient confiance");
@@ -163,12 +178,18 @@ public class SaisirRapportActivity extends AppCompatActivity {
     }
 
     public void afficherDate(View v){
+
         DateFr dateCourante = new DateFr();
         int selectedYear = dateCourante.getAnnee();
         int selectedMonth = dateCourante.getMois() - 1;
         int selectedDayOfMonth = dateCourante.getJour();
 
+        // ces 3 variables nous permettent de récupérer la date courante et de l'afficher dans le date
+        // picker par défaut
+
         // Date Select Listener.
+
+        // création d'un ecouteur
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -184,15 +205,23 @@ public class SaisirRapportActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth);
 
+        // initialisationn du date picker prenant en params le mois, l'annee et le jour courant
+
         // Show
         datePickerDialog.show();
+
+        // affiche le date picker
+
     }
 
     public void insererRapport(View v){
+
         String unPraticien = spinnerPraticiens.getSelectedItem().toString();
         String unMotif = spinnerMotifs.getSelectedItem().toString();
         String bilan = bilanRapport.getText().toString();
         int coefConfiance = Integer.parseInt(spinnerCoeffConfiance.getSelectedItem().toString());
+
+        // recuperation des valeurs des spinners et des valeurs des input dans des variables
 
         String[] praticien = unPraticien.split(" ");
         int numPraticien = Integer.parseInt(praticien[2].replace("(", "").replace(")",""));
@@ -211,11 +240,18 @@ public class SaisirRapportActivity extends AppCompatActivity {
                 numPraticien
         );
 
+        // initialisation d'un rapport de visite avec les valeurs récupérés précédemment
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
 
+        // initialisation de la classe gsonBuilder pour par la suite transmettre nos données au format Json
+
+
         RequestQueue requete = Volley.newRequestQueue(this);
         String url = getResources().getString(R.string.setRapport);
+
+        //ecouteur
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
         new Response.Listener<String>() {
@@ -230,6 +266,8 @@ public class SaisirRapportActivity extends AppCompatActivity {
                 nOk.setVisibility(View.VISIBLE);
             }
         }){
+
+            //
             @Override
             protected Map<String, String> getParams()
             {

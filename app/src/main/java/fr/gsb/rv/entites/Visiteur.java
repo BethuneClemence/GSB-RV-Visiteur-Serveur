@@ -1,11 +1,16 @@
 package fr.gsb.rv.entites;
 
+import android.widget.EditText;
+
 public class Visiteur {
 
     private String matricule;
     private String mdp;
     private String nom;
     private String prenom;
+    private String ville;
+    private String adresse;
+    private String cp;
 
     public Visiteur(String matricule, String mdp, String nom, String prenom) {
         this.matricule = matricule;
@@ -14,6 +19,18 @@ public class Visiteur {
         this.prenom = prenom;
     }
 
+    public Visiteur(String matricule, String mdp, String nom, String prenom, String ville, String adresse, String cp) {
+        this.matricule = matricule;
+        this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.ville = ville;
+        this.adresse = adresse;
+        this.cp = cp;
+
+    }
+
+    // creation d'une classe visiteur permettant d'initialiser un visiteur
     public String getMatricule() {
         return matricule;
     }
@@ -46,6 +63,30 @@ public class Visiteur {
         this.prenom = prenom;
     }
 
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getCp() {
+        return cp;
+    }
+
+    public void setCp(String cp) {
+        this.cp = cp;
+    }
+
     @Override
     public String toString() {
         return "Visiteur{" +
@@ -53,6 +94,9 @@ public class Visiteur {
                 ", mdp='" + mdp + '\'' +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
+                ", ville='" + ville + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", cp='" + cp + '\'' +
                 '}';
     }
 }

@@ -28,7 +28,7 @@ def seConnecter( matricule , mdp ) :
 	try :
 		curseur = getConnexionBD().cursor()
 		requete = '''
-					select vis_nom , vis_prenom
+					select vis_nom , vis_prenom, vis_ville, vis_adresse, vis_cp
 					from Visiteur
 					inner join Travailler as t1
 					on t1.vis_matricule = Visiteur.vis_matricule
@@ -51,6 +51,9 @@ def seConnecter( matricule , mdp ) :
 			visiteur[ 'vis_matricule' ] = matricule
 			visiteur[ 'vis_nom' ] = enregistrement[ 0 ]
 			visiteur[ 'vis_prenom' ] = enregistrement[ 1 ]
+			visiteur[ 'vis_ville' ] = enregistrement[ 2 ]
+			visiteur[ 'vis_adresse' ] = enregistrement[ 3 ]
+			visiteur[ 'vis_cp' ] = enregistrement[ 4 ]
 			
 		curseur.close()
 		return visiteur
@@ -290,7 +293,28 @@ def enregistrerRapportVisite( matricule , numPraticien , dateVisite , bilan, coe
 		except:
 			return None
 
-		
+
+def modifierMdp( matricule ,mdp ) :
+	
+	
+		try:
+			curseur = getConnexionBD().cursor()
+
+			requete = '''
+			
+				UPDATE Visiteur set vis_mdp = %s
+				where vis_matricule = %s
+				
+				'''
+
+			curseur.execute( requete, ( mdp, matricule ) )
+			connexionBD.commit()
+			curseur.close()
+
+			return 1
+
+		except:
+			return None	
 		
 def enregistrerEchantillonsOfferts( matricule , numRapport , echantillons ) :
 	

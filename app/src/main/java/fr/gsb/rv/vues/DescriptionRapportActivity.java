@@ -36,14 +36,25 @@ public class DescriptionRapportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_description_rapport);
 
+        // on associe notre code java a notre layout
+
         listeEchantillon = (ListView) findViewById(R.id.liste_echantillon);
+        // on initialise notre listeView
+
         tvUserCo = (TextView) findViewById(R.id.id_userCo);
         tvUserCo.setText(Session.getSession().getLeVisiteur().getNom()+" "+Session.getSession().getLeVisiteur().getPrenom());
         Bundle bundle = this.getIntent().getExtras();
+
+        // on recupère nos donnes par le biai du bundle
+
         ArrayList<Integer> data = bundle.getIntegerArrayList("numRapport");
         int numRapport = data.get(0);
 
+        // on recupère notre numero de rapport
+
         String url = String.format(getResources().getString(R.string.getEchantillonRapport), Session.getSession().getLeVisiteur().getMatricule(), String.valueOf(numRapport));
+
+        // on appel la route permettant d'obtenir les echantillons pour un rapport
 
         Response.Listener<JSONArray> ecouteur = new Response.Listener<JSONArray>(){
 
@@ -59,13 +70,20 @@ public class DescriptionRapportActivity extends AppCompatActivity {
                                     dict.getString("med_effets")
                             );
 
+                            // on initialise un echantillon
+
                             lesEchantillons.add(echantillon);
+
+                            // on ajoute l'echantillon a notre tableau crée au préalable
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
                     }
+
+                    // on crée un adaptateur dans lequel on met le context, et le tableau
+                    // avec lequel on va travailler
                     EchantillonAdaptateur echantillonAdaptateur = new EchantillonAdaptateur(DescriptionRapportActivity.this, lesEchantillons);
                     listeEchantillon.setAdapter(echantillonAdaptateur);
 
@@ -73,6 +91,7 @@ public class DescriptionRapportActivity extends AppCompatActivity {
             }
         };
 
+        // ecouteur d'erreur
         Response.ErrorListener ecouteurErreur = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -80,6 +99,7 @@ public class DescriptionRapportActivity extends AppCompatActivity {
             }
         };
 
+        // creation d'une requete avec la methode, url et les ecouteurs
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -89,6 +109,8 @@ public class DescriptionRapportActivity extends AppCompatActivity {
         );
         RequestQueue requestQueue = Volley.newRequestQueue(DescriptionRapportActivity.this);
         requestQueue.add(jsonArrayRequest);
+
+        // ajout de la requete a la liste des requetes
 
 
     }

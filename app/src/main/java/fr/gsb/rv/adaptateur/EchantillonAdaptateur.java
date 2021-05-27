@@ -39,14 +39,18 @@ public class EchantillonAdaptateur extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         View v = View.inflate(context, R.layout.layout_echantillon_design, null);
+        // on associe notre design layout a notre code java
 
         TextView medocNom = (TextView) v.findViewById(R.id.medoc_nom);
         TextView medocEffets = (TextView) v.findViewById(R.id.medoc_effets);
         TextView medocQuantite = (TextView) v.findViewById(R.id.medoc_quantite);
+        // on initialise nos champs
 
         medocNom.setText("Nom echantillon: "+lesEchantillons.get(position).getMedNonCommercial());
         medocEffets.setText("Effets: "+lesEchantillons.get(position).getMedEffets());
         medocQuantite.setText("Quantité: "+String.valueOf(lesEchantillons.get(position).getQuantite()));
+
+        // on met dans nos champs, les valeurs correspondantes
 
 
 

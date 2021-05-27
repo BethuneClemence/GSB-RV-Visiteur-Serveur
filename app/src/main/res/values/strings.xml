@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">GSB-RV</string>
-    <string name="seConnecter_IP">http://192.168.43.237:5000/visiteurs/%s</string>
-    <string name="getRapportsVisite">http://192.168.43.237:5000/rapports/%s/%s/%s</string>
-    <string name="getEchantillonRapport">http://192.168.43.237:5000/rapports/echantillons/%s/%s</string>
-    <string name="setRapport">http://192.168.43.237:5000/rapports</string>
+    <string name="seConnecter_IP">http://192.168.2.237:5000/visiteurs/%s</string>
+    <string name="getRapportsVisite">http://192.168.2.237:5000/rapports/%s/%s/%s</string>
+    <string name="getEchantillonRapport">http://192.168.2.237:5000/rapports/echantillons/%s/%s</string>
+    <string name="setRapport">http://192.168.2.237:5000/rapports</string>
     <string name="edit_text_hint"><font size="15">Matricule</font></string>
+    <string name="edit_text_hint_ancien_mdp"><font size="15">Ancien mot de passe</font></string>
+    <string name="edit_text_hint_nouveau_mdp"><font size="15">Nouveau mot de passe</font></string>
+    <string name="edit_text_hint_confirmer_mdp"><font size="15">Confirmer mot de passe</font></string>
     <string name="edit_text_hint_bilan"><font size="15">Saisir le bilan</font></string>
-    <string name="getPraticiens">http://192.168.43.237:5000/praticiens</string>
-    <string name="getMotifs">http://192.168.43.237:5000/motifs</string>
+    <string name="getPraticiens">http://192.168.2.237:5000/praticiens</string>
+    <string name="getMotifs">http://192.168.2.237:5000/motifs</string>
+    <string name="setMdp">http://192.168.2.237:5000/nouveauMdp</string>
 </resources>

@@ -26,18 +26,33 @@ public class MenuActivity extends AppCompatActivity {
             TextView tvUserCo = (TextView) findViewById(R.id.id_userCo);
             tvUserCo.setText(Session.getSession().getLeVisiteur().getNom()+" "+Session.getSession().getLeVisiteur().getPrenom());
         }
+        // methode ONCREATE
+        // on associe notre layout a notre code JAVA
+        // on récupère l'utilisateur connecté pour l'afficher sur notre vue
 
+        // creation de la methode CONSULTER RAPPORT
+        // cette methode est associe au bouton consulter un rapport et permet de nous faire basculer vers la vue consulter
         public void consulterRapport(View v){
             final Intent intent = new Intent(MenuActivity.this, ConsulterRapportActivity.class);
             startActivity(intent);
 
         }
 
-    public void saisirRapport(View v){
-        final Intent intent = new Intent(MenuActivity.this, SaisirRapportActivity.class);
-        startActivity(intent);
+        // creation de la methode SAISIR RAPPORT
+        // cette methode est associe au bouton saisir rapport et permet de nous faire basculer faire la vue saisir
+        public void saisirRapport(View v){
+            final Intent intent = new Intent(MenuActivity.this, SaisirRapportActivity.class);
+            startActivity(intent);
 
-    }
+        }
+
+        // creation de la methode consulterProfil
+        // cette methode est associe au bouton profil et permet de nous faire basculer vers la vue consulte profil
+        public void consulterProfil(View v){
+            final Intent intent = new Intent(MenuActivity.this, ProfilActivity.class);
+            startActivity(intent);
+
+        }
 
 
 };

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MOT DE PASSE"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="90dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modification mot de passe"
+        android:textColor="@color/yellow"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:textStyle="bold"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="750dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/custom_layout"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ancienMdp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="20dp"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/shadow"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:hint="@string/edit_text_hint_ancien_mdp"
+
+
+            />
+
+        <EditText
+            android:id="@+id/nvxMdp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="20dp"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/shadow"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:hint="@string/edit_text_hint_nouveau_mdp"
+
+
+            />
+
+        <EditText
+            android:id="@+id/confirmerMdp"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/custom_input"
+            android:drawablePadding="20dp"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/shadow"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:hint="@string/edit_text_hint_confirmer_mdp"
+
+
+            />
+
+
+
+
+        <Button
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/custom_button"
+            android:text="Modifier"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:onClick="updateMdp"/>
+
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:id="@+id/erreurMdp"
+            android:layout_marginTop="380dp"
+            android:background="@drawable/custom_alert"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Erreur, veuillez réessayer !"
+                android:id="@+id/erreurMessage"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:id="@+id/mdpModifie"
+            android:layout_marginTop="380dp"
+            android:background="@drawable/custom_alert_success"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Le mot de passe à bien été modifié !"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+
+

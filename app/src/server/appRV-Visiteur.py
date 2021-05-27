@@ -102,12 +102,12 @@ def getMedicaments() :
 	
 @app.route( '/rapports' , methods = [ 'POST' ] )
 def addRapportVisite() :
-	unRapport = request.form['rapport']
+	unRapport = request.form['rapport'] # rapport fait appel a la clef GSON que l'on envoi
 	rapport = json.loads(unRapport)
 	#{"bilan":"très bien","coefConfiance":4,"dateRedaction":"2021-5-24","dateVisite":"2021-5-13","matricule":"b16","numMotif":4,"numPraticien":5}
 	
 	insert = modeleGSBRV.enregistrerRapportVisite( 	rapport[ 'matricule' ] , 
-																rapport[ 'numPraticien' ] ,
+																rapport[ 'numPraticien' ] , #ce sont les champs déclaré dans la classe java
 																rapport[ 'dateVisite' ] ,
 																rapport[ 'bilan' ],
 																rapport[ 'coefConfiance' ],
@@ -118,6 +118,20 @@ def addRapportVisite() :
 	print("================", rapport)
 												
 	return Response(rapport, status=200, mimetype='application/json')
+	
+
+@app.route( '/nouveauMdp' , methods = [ 'POST' ] )
+def modifierMdp() :
+	data = request.form['data']
+	data = json.loads(data)
+	
+	
+	insert = modeleGSBRV.modifierMdp( data[ 'matricule' ],data[ 'confirmerMdp' ])
+																
+															
+	print("================", data)
+												
+	return Response(data, status=200, mimetype='application/json')
 	
 
 @app.route( '/rapports/echantillons/<matricule>/<numRapport>' , methods = [ 'POST' ] )
@@ -141,6 +155,6 @@ def addEchantillonsOfferts( matricule , numRapport ) :
 
 if __name__ == '__main__' :
 
-	app.run(debug=True, host="192.168.43.237", port=5000)
+	app.run(debug=True, host="192.168.2.237", port=5000)
 
 
